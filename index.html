@@ -608,7 +608,7 @@ main {
         </ul>
       </section>
       <article>
-        <h6>&copy; DesarrollaTec 2026 - V1</h6>
+        <h6>&copy; DesarrollaTec 2026 - V<p id="contador">0</p></h6>
       </article>
     </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -654,7 +654,13 @@ function enviarMensaje() {
     const urlWhatsApp = `https://wa.me/${numeroCelular}?text=${encodeURIComponent(mensajeOriginal)}`;
     window.open(urlWhatsApp, '_blank');
 }
+
+  // Usamos CountAPI (servicio gratuito) para contabilizar visitas
+    fetch('https://api.countapi.xyz/hit/desarrollatec.github.io/tex-access')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("contador").textContent = data.value;
+      });
 </script>
   </body>
 </html>
-
