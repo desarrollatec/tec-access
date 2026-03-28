@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Brochure DesarrollaTec</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consultoría técnica y transformación en accesibilidad digital. Web para todos con cumplimiento WCAG y normativa peruana.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+/* Tipografía, colores y base */
+@font-face {
+  font-family: "Calibri";
+  src: local("Calibri"), local("Calibri-Regular");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --bg-white: #ffffff;
+  --text-dark-purple: #00008b;
+  --accent-dark-purple: #00008b;
+  --border-dark-purple: #00008b;
+  --whatsapp-green: #25D366;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-white);
+  color: var(--text-dark-purple);
+  font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Imágenes y videos responsivos */
+img, .video-container {
+  border: 2px solid #00008b;
+border-radius: 12px;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease; /* Efecto suave de ampliación */
+}
+
+img:hover, video:hover {
+  transform: scale(1.02);      /* Ampliación sutil al pasar el mouse */
+  box-shadow: 0 4px 15px rgba(0, 0, 139, 0.3);
+}
+
+/* Encabezados y textos */
+h1 {
+  font-size: 1.8rem;            /* móvil */
+  text-align: center;
+  margin: 20px auto;
+  color: var(--text-dark-purple);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); /* sombreado sutil */
+}
+
+h2 {
+  font-size: 1.4rem;            /* móvil */
+  color: var(--text-dark-purple);
+  margin: 16px 0 8px;
+  padding: 4px 0;
+}
+
+h3 {
+  font-size: 1.2rem;            /* móvil */
+  color: var(--text-dark-purple);
+  margin: 12px 0 8px;        /* desplazado hacia la derecha */
+  padding: 2px 0;
+}
+
+p, li {
+  font-size: 1rem;              /* móvil */
+  color: var(--text-dark-purple);
+  margin: 8px 0;
+  text-align: justify;          /* justificado */
+}
+
+#accesibilidad ul, #accesibilidad ol, #inclusion ul, #inclusion ol {
+  padding-left: 25px;       /* Suficiente para que se vea el check o el número */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Listas: ocultar viñetas */
+ul {
+  list-style: none;
+}
+
+/* Navegación: móvil primero (hamburguesa) */
+  .btn-menu-movil {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-dark-purple);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px;
+  font-family: "Calibri", sans-serif;
+}
+
+nav {
+  position: relative;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: grey;
+  border: 2px solid var(--border-dark-purple);
+  border-radius: 12px;
+  max-width: 92%;
+}
+
+/* Ícono de barra para móvil */
+nav::before {
+  content: "☰ Menú";
+  display: inline-block;
+  color: var(--text-dark-purple);
+  font-size: 1rem;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* Lista oculta por defecto en móvil */
+nav ul {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Despliegue al interactuar (hover o focus dentro) */
+nav:hover ul,
+nav:focus-within ul {
+  display: flex;
+}
+
+/* Enlaces de navegación */
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;                /* separación de texto */
+  display: inline-block;
+}
+
+/* Tablas centradas y accesibles */
+table {
+  width: 92%;
+  margin: 16px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid var(--border-dark-purple);
+  border-radius: 8px;           /* esquinas redondeadas del contenedor */
+  overflow: hidden;             /* aplica el redondeo visual */
+  color: var(--text-dark-purple);
+  text-align: center;
+}
+
+thead th {
+  font-weight: 700;             /* primera fila en negrita */
+  border-bottom: 2px solid var(--border-dark-purple);
+  padding: 8px;                 /* mayor legibilidad en encabezado */
+}
+
+tbody td {
+  padding: 5px;                 /* separación interna */
+  border-top: 1px solid var(--border-dark-purple);
+}
+
+/* Video */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Relación 16:9 (alto/ancho = 9/16 = 0.5625) */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; /* Se adapta al ancho del contenedor padre */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  /* Ocupa todo el ancho disponible */
+  height: 100%; /* Ajusta la altura automáticamente */
+}
+
+/* Botón WhatsApp llamativo */
+#whatsapp {
+  font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  color: var(--text-dark-purple);
+  background-color: var(--whatsapp-green);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;           /* separación aproximada de 10px */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+#whatsapp:hover,
+button:focus {
+  filter: brightness(1.05);
+  outline: 2px solid rgba(255,255,255,0.35);
+  outline-offset: 2px;
+}
+
+#contactanos ul li a {
+  text-decoration: none;
+  color: #00008b;
+}
+
+/* Footer: h6 centrado */
+footer h6 {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 24px auto;
+  color: var(--text-dark-purple);
+}
+
+/* Ajustes de figuras */
+figure {
+  margin: 20px auto;
+  display: flex;               /* Usamos flexbox para centrar el contenido interno */
+  justify-content: center;
+  width: 100%;                 /* Ocupa todo el ancho disponible */
+}
+
+/* MAIN contenedor */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5px 10px;
+}
+
+#accesibilidad, #inclusion {
+  border: 3px solid #00008b;
+  border-radius: 12px;
+  padding: 5px;
+  display: block;
+  overflow: hidden;         /* Evita que el contenido se salga del borde redondeado */
+}
+
+/* =========================
+   Responsive: Tablet
+   ========================= */
+@media (min-width: 600px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.6rem; margin: 18px 0 10px; }
+  h3 { font-size: 1.3rem; margin: 14px 0 10px; }
+  p  { font-size: 1.05rem; margin: 10px 0; }
+
+  #accesibilidad, #inclusion {
+    padding: 10px;
+  }
+
+  /* Navegación horizontal en tablet */
+  .btn-menu-movil {
+    display: none;
+  }
+
+  nav {
+    max-width: 88%;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  nav::before {
+    content: "";                 /* ocultar ícono hamburguesa en tablet */
+    display: none;
+  }
+
+  nav ul {
+    display: flex !important;    /* siempre visible en tablet */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  nav ul li {
+    flex: 1;                     /* Hace que cada parte ocupe exactamente el mismo ancho (25%) */
+    text-align: center;          /* Centra el texto dentro de su espacio */
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria sutil */
+  }
+
+  nav ul li:last-child {
+    border-right: none;          /* Quita la línea divisoria a la última opción */
+  }
+
+  nav a {
+    padding: 10px 5px;
+    margin: 0 0;
+    display: block;
+    width: 100%;
+    font-size: 0.95rem;          /* Ajuste leve para que quepa el texto largo */
+  }
+
+  table {
+    width: 88%;
+  }
+
+  thead th, tbody td {
+    padding: 8px 10px;
+  }
+
+  button {
+    font-size: 1.05rem;
+    padding: 10px 18px;
+  }
+
+  main {
+    padding: 10px 20px;
+  }
+}
+
+/* =========================
+   Responsive: Laptop / PC
+   ========================= */
+@media (min-width: 1024px) {
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 1.8rem; margin: 20px 0 12px; }
+  h3 { font-size: 1.4rem; margin: 16px 0 12px; }
+  p  { font-size: 1.1rem; margin: 12px 0; }
+
+  #accesibilidad, #inclusion {
+    padding: 20px;
+  }
+
+  img {
+    max-width: 70%;            /* En PC se ve mejor si no ocupa todo el ancho */
+  }
+
+  /* Barra de navegación ampliando ancho y altura */
+  nav {
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+
+  nav a {
+    padding: 15px 10px;
+    font-size: 1.1rem;           /* Texto un poco más grande en PC */
+  }
+
+  table {
+    width: 70%;
+    border-width: 2px;
+    border-radius: 10px;
+  }
+
+  thead th, tbody td {
+    padding: 10px 12px;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 12px;
+  }
+
+  footer h6 {
+    font-size: 1rem;
+    margin: 28px auto;
+  }
+
+  main {
+    padding: 20px 40px;
+  }
+}
+
+  </style>
+  <body>
+    <header>
+      <h1>Brochure Tecnológico</h1>
+    </header>
+      <nav>
+        <button id="menu-toggle" class="btn-menu-movil">Menú</button>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a id="aw" href="#accesibilidad-web">Accesibilidad Web</a></li>
+          <li><a id="il" href="#inclusion-laboral">Inclusión Tecnológica</a></li>
+          <li><a href="#contactanos">Contáctanos</a></li>
+        </ul>
+      </nav>
+    <main>
+      <section id="accesibilidad">
+        <article>
+          <h2>Web para Todos: Consultoría Técnica y Transformación en Accesibilidad Digital</h2>
+          <p>La Accesibilidad Web es la práctica de eliminar barreras que impiden la interacción o el acceso a plataformas web por parte de personas con discapacidad. No es solo una mejora visual; es asegurar que su infraestructura digital cumpla con las pautas internacionales WCAG 2.1 y 2.2 (Web Content Accessibility Guidelines).</p>
+          <figure>
+            <img src="https://scontent.flim4-3.fna.fbcdn.net/v/t39.30808-6/616841441_917801640777983_7271492998801900977_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gtXl2WxjnO0Q7kNvwFfDAYA&_nc_oc=Adn5BzSsdEt6GC8s-mQYG9eDKc0PGudzVUj3joquIp6fa4D33smXQjuGuOhW4wHWI80&_nc_zt=23&_nc_ht=scontent.flim4-3.fna&_nc_gid=-xL1asyHxWyoz8Onm_YyWw&oh=00_AfqHffaa2OgaGZPn3HcmejPmxuJKtVZ3wNzoUgz7PFYzEQ&oe=69770324" alt="Una interfaz limpia, un lector de pantalla activo y una persona con discapacidad navegando con éxito.">
+            <!--<img src="https://drive.google.com/uc?export=download&id=1Zirg3W7E7ahMn4O4xFxiIPNikw_N4LNT" alt="Una captura de pantalla dividida. En un lado, código desordenado y una persona frustrada; en el otro, una interfaz limpia, un lector de pantalla activo y una persona con discapacidad navegando con éxito.">-->
+          </figure>
+          <p>No es solo inclusión, es innovación técnica y cumplimiento legal. ¿Está su empresa lista para el mercado global?</p>
+        </article>
+        <article>
+          <h3>1. ¿Qué es Accesibilidad Web?</h3>
+        <p>Es la práctica de diseñar y desarrollar plataformas web, herramientas y tecnologías para que las personas con discapacidad puedan usarlas.</p>
+        <ol type="A">
+          <li>Desarrollo Universal Digital: Es garantizar que cualquier persona, sin importar su condición física o sensorial pueda navegar, entender e interactuar con una plataforma web de manera autónoma.</li>
+          <li>Cumplimiento de WCAG: Estas reglas aseguran que el contenido sea Percibible (que se pueda ver o escuchar), Operable (que se pueda usar solo con el teclado o voz), Comprensible (que no sea confuso) y Robusto (que funcione en cualquier dispositivo moderno).</li>
+          <li>Puente Tecnológico de IA: Gracias a la Inteligencia Artificial, hoy, la IA puede generar descripciones automáticas de imágenes para personas con pérdida visual, subtitular videos en tiempo real para personas con discapacidad auditiva y simplificar textos complejos para personas con discapacidad cognitiva.</li>
+          <li>Optimización para el Futuro del Negocio: No es solo para personas con discapacidad; una web accesible carga más rápido, se ve mejor en celulares y tiene un mejor posicionamiento en Google (SEO).</li>
+        </ol>
+        </article>
+        <article>
+          <h3>2. Impacto en el Negocio y Beneficios</h3>
+          <ul>
+            <li>✔️ Aumento de Tráfico y Mercado: Al ser accesible, su web se abre al 15% de la población mundial que vive con alguna discapacidad (visual, auditiva o motriz).</li>
+            <li>✔️ Optimización SEO: Google prioriza plataformas con estructura semántica correcta, mejorando su posicionamiento orgánico automáticamente.</li>
+            <li>✔️ Cumplimiento Legal: Alineación estricta con la Ley N° 29973 y N° 28530 en Perú, evitando sanciones por discriminación en entornos digitales.</li>
+            <li>✔️ Interacción Universal: Usuarios con discapacidad motriz (navegación por teclado) o visual (lectores de pantalla) podrán completar flujos de compra y registro con éxito.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>3. Nuestra Propuesta: El Programa de 4 Semanas</h3>
+          <p>Transformamos la visión de su equipo técnico y directivo a través de una metodología práctica y basada en resultados.</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th scope="col">FASES</th>
+                <th scope="col">PROCESOS</th>
+                <th scope="col">OBJETIVOS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fase 1</td>
+                <td>Diagnóstico en la Plataforma Web</td>
+                <td>Conocer los distintos problemas de accesibilidad en la web.</td>
+              </tr>
+              <tr>
+                <td>Fase 2</td>
+                <td>Ingorme de requerimientos e incidentes de la web.</td>
+                <td>Obtener las distintas mejoras de la interacción web para los distintos usuarios.</td>
+              </tr>
+              <tr>
+                <td>Fase 3</td>
+                <td>Implementación de código accesible</td>
+                <td>Trabajar con el equipo de Desarrollo Web para conseguir la accesibilidad.</td>
+              </tr>
+              <tr>
+                <td>Fase 4</td>
+                <td>Demostración en la Plataforma Web</td>
+                <td>Dar a conocer el avance de la web amterior con la web actual.</td>
+              </tr>
+              <tr>
+                <td>Fase 5</td>
+                <td>Capacitación a Desarrolladores Web</td>
+                <td>Retroalimentar para que puedan conocer y realizar Plataformas Web accesibles.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <h3>4. Diferencia de nuestra Consultoría</h3>
+          <ul>
+            <li>✔️ Enfoque en Resultados: No solo damos teoría; mostramos el "antes y después" funcional de su producto.</li>
+            <li>✔️ Experiencia Real: Uso de tecnologías asistivas en tiempo real para validar la navegación, formularios y flujos críticos.</li>
+            <li>✔️ Alineación Normativa: Basado estrictamente en las pautas WCAG 2.1 / 2.2, válidas en Perú y el extranjero (Estados Unidos y Europa).</li>
+          </ul>
+        </article>
+        <article>
+          <h3>5. Entregables Finales</h3>
+          <p>A continuación, le mostraré para que sienta que su inversión vale la pena:</p>
+          <ol type="A">
+            <li>Reporte "Quick Wins": Un documento PDF con los 10 errores más críticos encontrados en su web y cómo solucionarlos de inmediato.</li>
+            <li>Guía de Estilos Accesibles: Un manual breve de consulta rápida para que sus programadores lo usen en futuros proyectos.</li>
+          </ol>
+        </article>
+        <article>
+          <h3>6. Video de accesibilidad web</h3>
+          <p>En el siguiente video, podrá observar el contraste crítico entre una plataforma inaccesible y una optimizada al 100% mediante nuestra consultoría:</p>
+          <div class="video-container">
+            <!--<iframe src="https://drive.google.com/file/d/1Nutyk8zIq6QCZev9BiZOKL3j3fpYQTCd/preview" width="640" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>-->
+  <iframe 
+    src="https://www.youtube.com/embed/Hl-C46k8r8s?rel=0&controls=1" 
+    title="Video demostrativo: Mejora de Accesibilidad Web y cumplimiento WCAG"
+    frameborder="0" 
+    alçlow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+          </div>
+          <p>Descripción breve: En el video hay una demostración de cómo una persona con discapacidad puede interactuar con una plataforma web accesible, desde el principio hasta el fin.</p>
+        </article>
+      </section>
+      <section id="inclusion">
+        <article>
+          <h2>Liderazgo en Tech: Programa de Inclusión Laboral para Desarrolladores Web con Discapacidad Visual</h2>
+          <p>Las barreras tecnológicas han caído. Hoy, gracias a lectores de pantalla, líneas Braille y editores de código accesibles como VS Code, las personas con discapacidad visual pueden desempeñarse como expertos en FrontEnd, BackEnd, FullStack y Administración de Base de Datos con la misma o mayor eficiencia que un desarrollador convencional.</p>
+          <figure>
+          <img src="https://scontent.flim4-3.fna.fbcdn.net/v/t39.30808-6/617312442_917801777444636_9053475624029026816_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_oFTgj8ZU4sQ7kNvwGygts1&_nc_oc=AdkWA3Ammrb_YEvQas3aQO7_pksdelJQCrdXlT9_fuGXJK8gxzjh0vXcjYkTvkA_m7U&_nc_zt=23&_nc_ht=scontent.flim4-3.fna&_nc_gid=smhXwGoAw515NtzThoeRvg&oh=00_AfqnHSyOuDm-nBYdvqdBOVEyxEDElo5WemaM92vK5tzgEA&oe=6976E7F8" alt="Un desarrollador web con discapacidad visuak que utiliza audífonos y un lector de pantalla, integrado totalmente en la dinámica del equipo de trabajo.">
+          <!--<img src="https://drive.google.com/uc?export=download&id=1wohGvZ6YJMvpUsRqDDhUNb1" alt="Un equipo de desarrollo en una reunión de Daily Stand-up, donde uno de los integrantes utiliza audífonos y un lector de pantalla, integrado totalmente en la dinámica del equipo">-->
+        </figure>
+        <p>El talento no tiene límites, las barreras las ponemos nosotros. Transforme su cultura organizacional con perfiles tech de alto rendimiento.</p>
+        </article>
+        <article>
+          <h3>1. ¿Qué es la Inclusión Tecnológica?</h3>
+          <p>Es la integración real y efectiva de personas con discapacidad en el entorno laboral y productivo mediante el uso de tecnología.</p>
+          <ol type="A">
+            <li>Empoderamiento a través del Software: Es el uso de herramientas como lectores de pantalla (NVDA/JAWS) o teclados adaptados que permiten a un profesional con discapacidad visual programar código complejo, gestionar bases de datos o liderar equipos de TI con la misma eficiencia que cualquier otro colega.</li>
+            <li>Eliminación de prejuicios en el Talento: Al proporcionar el entorno digital adecuado, las empresas descubren que los desarrolladores con discapacidad suelen tener una capacidad lófica y analítica para la resolución de problemas muy superior a la media.</li>
+            <li>IA como Asistente de Productividad: Herramientas de IA ayudan a programadores con discapacidad visual puedan recibir explicaciones visuales de una interfaz de usuario mediante modelos de lenguaje, eliminando las barreras que antes parecían imposibles.</li>
+            <li>Estrategia de Innovación Corporativa: Los equipos inclusivos son más creativos porque ven los problemas desde ángulos diferentes, lo que genera productos más innovadores y mejora el clima laboral de toda la organización.</li>
+          </ol>
+        </article>
+        <article>
+          <h3>2. ¿Por qué contratar talento tech con discapacidad?</h3>
+          <ul>
+            <li>✔️ Alta Capacidad de Abstracción: Los desarrolladores con discapacidad visual suelen desarrollar habilidades lógicas y de memoria superiores para gestionar estructuras de datos complejas.</li>
+            <li>✔️ Mejora del Clima y Retención: Las empresas inclusivas reportan un mayor compromiso de sus colaboradores y una marca empleadora más fuerte.</li>
+            <li>✔️ Beneficios Tributarios en Perú: Deducciones adicionales en el Impuesto a la Renta por la contratación de personas con discapacidad, mejorando la rentabilidad financiera de la empresa.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>3. Temario del Programa</h3>
+        <p>Transformamos la visión de su equipo de reclutamiento, técnico y directivo a través de una metodología práctica y basada en resultados.</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th scope="col">Sesión</th>
+                <th scope="col">Título</th>
+                <th scope="col">Objetivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Semana 1</td>
+                <td>Rompiendo el Sesgo de la Discapacidad</td>
+                <td>Análisis de mitos vs. realidades. Dinámica: ¿Cómo programa una persona con pérdida visual? (Demostración de herramientas de asistencia y flujo de trabajo).</td>
+              </tr>
+              <tr>
+                <td>Semana 2</td>
+                <td>Entornos de Trabajo Accesibles</td>
+                <td>Configuración de la oficina y herramientas digitales (Slack, Jira, VS Code). Cómo hacer que los procesos de comunicación interna sean inclusivos.</td>
+              </tr>
+              <tr>
+                <td>Semana 3</td>
+                <td>Reclutamiento y Selección sin Barreras</td>
+                <td>Cómo adaptar las entrevistas técnicas y las pruebas de código para que sean equitativas, evaluando el talento por encima de la condición.</td>
+              </tr>
+              <tr>
+                <td>Semana 4</td>
+                <td>Liderazgo y Gestión de Equipos Diversos</td>
+                <td>Estrategias para Jefes de Proyecto: Onboarding, mentoría y cómo potenciar el crecimiento profesional del nuevo talento en el equipo.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <h3>4. ¿Qué ganará su empresa con este taller?</h3>
+          <ul>
+            <li><span>✔️ Hoja de Ruta de Contratación: Un paso a paso claro desde la publicación de la vacante hasta el primer día de trabajo.</span></li>
+            <li><span>✔️ Adaptación de Procesos: No necesita una remodelación costosa; le enseñamos cómo usar la tecnología que ya tiene para ser inclusivo.</span></li>
+            <li><span>✔️ Posicionamiento de Marca: Proyecte una imagen de empresa moderna, humana y alineada con los Objetivos de Desarrollo Sostenible (ODS).</span></li>
+          </ul>
+        </article>
+        <article>
+          <h3>5. Entregables Recomendados para este Taller</h3>
+          <p>Para que RR.HH. y Gerencia sientan que tienen las herramientas listas para actuar:</p>
+          <ol type="A">
+            <li>Guía de "Entrevista Técnica Inclusiva": Un checklist para evaluadores sobre cómo realizar pruebas de código accesibles.</li>
+            <li>Protocolo de Onboarding: Un documento con los pasos para integrar a un desarrollador con discapacidad visual al equipo técnico en su primera semana.</li>
+            <li>Sello de "Empresa Aliada de la Inclusión Tech": Un reconocimiento digital que pueden colocar en su web de "Trabaja con nosotros".</li>
+          </ol>
+        </article>
+        <article>
+          <h3>6. Video de Inclusión Laboral</h3>
+          <p>Vea una sesión de programación real donde un desarrollador con discapacidad visual construye y despliega una plataforma web:</p>
+          <div class="video-container">
+            <!--<iframe src="https://drive.google.com/file/d/1h11_avBQJIagd8Ih32L4pvsezDRwy7cC/preview" width="640" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>-->
+  <iframe 
+    src="https://www.youtube.com/embed/HnFgyPuCQ3E?rel=0&controls=1" 
+    title="Video de Inclusión Laboral: Programación con lector de pantalla"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+          </div>
+          <p>Descripción breve: En el video hay una demostración de cómo una persona con discapacidad trabaja en una empresa en el Área de Tecnología, trato totalmente inclusivo con los demás empleados.</p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <section id="contactanos">
+        <h3>7. ¡Inicie la Transformación Hoy!</h3>
+        <p>La inclusión no es un acto de caridad, es un acto de inteligencia empresarial. ¿Está listo para liderar el cambio digital en su sector?</p>
+        <ul>
+          <li>✔️ Contacto: Ingeniero de Sistemas, Brajean Méndiz Flores.</li>
+          <li>✔️ LinkedIn: <a href="https://www.linkedin.com/in/brajean-m%C3%A9ndiz-flores-5ba7b9b2/" target="_blank">Perfil de LinkedIn de Brajean Méndiz Flores</a></li>
+          <li>✔️ WhatsApp: <button id="whatsapp" onclick="enviarMensaje()">Diagnóstico Gratuito</button></li>
+          <li>✔ 📧: <a href="mailto:desarrollatec.pe@gmail.com?subject=Solicito%20diagn%C3%B3stico%20gratuito&body=%C2%A1Hola%20Ing.%20Brajean%20M%C3%A9ndiz!%0ANos%20gustaría%20iniciar%20el%20proceso%20con%20respecto%20al%20Diagn%C3%B3stico%20Cgratuito%20en%20la%20Plataforma%20Web.%0AEstaremos%20a%20la%20espera%20de%20su%20comunicaci%C3%B3n..%20%F0%9F%92%BB" target="_blank">desarrollatec.pe@gmail.com</a></li>
+          <li>✔ 📱: <a href="tel:992891965">+51 992 891 965</a></li>
+          <li>✔️ Ubicación: Chorrillos, Lima - Perú.</li>
+        </ul>
+      </section>
+      <article>
+        <h6>&copy; DesarrollaTec 2026 - V1</h6>
+      </article>
+    </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Estado inicial: solo mostramos la primera sección
+    $("#inclusion").hide();
+
+    // Interacción de la sección Inclusión con efecto Fade
+    $("#il").on("click", function(e){
+        e.preventDefault();
+        $("#accesibilidad").fadeOut(400, function(){
+            $("#inclusion").fadeIn(600);
+        });
+    });
+
+    // Interacción de la sección Accesibilidad con efecto Fade
+    $("#aw").on("click", function(e){
+        e.preventDefault();
+        $("#inclusion").fadeOut(400, function(){
+            $("#accesibilidad").fadeIn(600);
+        });
+    });
+
+    //menú para mostrar
+    $("#menu-toggle").click(function() {
+      $("nav ul").show();
+    });
+
+    // Efecto de cierre de menú móvil tras hacer clic (Mejora UX)
+    $("nav ul li a").on("click", function(){
+        if ($(window).width() < 768) {
+            $("nav ul").hide(); // Oculta el menú tras seleccionar
+        }
+    });
+});
+
+// Función de WhatsApp mejorada
+function enviarMensaje() {
+    const numeroCelular = '51992891965';
+    // Nota: El texto no debe estar doblemente codificado, encodeURIComponent se encarga de todo.
+    const mensajeOriginal = '¡Hola Ing. Brajean Méndiz! 👋\nNos gustaría iniciar con el proceso con respecto al Diagnóstico gratuito de Plataforma Web. 💻\nEstaremos a la espera de su comunicación.';
+    const urlWhatsApp = `https://wa.me/${numeroCelular}?text=${encodeURIComponent(mensajeOriginal)}`;
+    window.open(urlWhatsApp, '_blank');
+}
+</script>
+  </body>
+</html>
+
